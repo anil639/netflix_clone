@@ -1,9 +1,14 @@
 import "./App.css";
-
+import { Routes, Route } from "react-router-dom";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
 function App() {
   return (
     <div className="App">
-      <h1>Anil</h1>
+      <Routes>
+        <Route path="/signUp" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }

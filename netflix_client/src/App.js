@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Home from "./Pages/Home";
+import Player from "./Pages/Player";
 
 const auth = getAuth();
 function App() {
@@ -26,6 +27,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        <Route
+          path="/player"
+          element={user ? <Player /> : <Navigate to="/login" />}
+        />
         <Route path="/signUp" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>

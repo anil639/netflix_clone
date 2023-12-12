@@ -130,6 +130,25 @@ const AppContainer = styled.div`
       }
     }
   }
+  @media (max-width: 576px) {
+    .content {
+      .body {
+        .text {
+          h1 {
+            padding: 0 1rem;
+          }
+        }
+
+        .form {
+          width: 100%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default Signup;

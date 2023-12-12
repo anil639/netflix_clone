@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavigationBar from "../Components/NavigationBar";
 import styled from "styled-components";
 import homeImage from "../Images/home.jpg";
@@ -6,9 +6,31 @@ import homeTitle from "../Images/homeTitle.webp";
 import { useNavigate } from "react-router-dom";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovies, getGenres } from "../Store/Store";
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const movies = useSelector((state) => state.netflix.movies);
+  const genres = useSelector((state) => state.netflix.genres);
+  const genresLoaded = useSelector((state) => state.netflix.genresLoaded);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // console.log(movies);
+  // console.log("a", genres);
+  // console.log("b", genresLoaded);
+
+  useEffect(() => {
+    dispatch(getGenres());
+  }, []);
+
+  useEffect(() => {
+    if (genresLoaded) {
+      dispatch(fetchMovies({ genres, type: "all" }));
+    }
+  }, [genresLoaded]);
+
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);

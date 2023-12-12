@@ -8,6 +8,7 @@ import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMovies, getGenres } from "../Store/Store";
+import Slider from "../Components/Slider";
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const movies = useSelector((state) => state.netflix.movies);
@@ -59,6 +60,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Slider movies={movies} />
     </Container>
   );
 };

@@ -6,6 +6,8 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Home from "./Pages/Home";
 import Player from "./Pages/Player";
+import MoviesDetails from "./Pages/MoviesDetails";
+import TvShowDetails from "./Pages/TvShowDetails";
 
 const auth = getAuth();
 function App() {
@@ -30,6 +32,14 @@ function App() {
         <Route
           path="/player"
           element={user ? <Player /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/movies"
+          element={user ? <MoviesDetails /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/tv"
+          element={user ? <TvShowDetails /> : <Navigate to="/login" />}
         />
         <Route path="/signUp" element={<Signup />} />
         <Route path="/login" element={<Login />} />

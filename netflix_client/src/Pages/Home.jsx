@@ -18,10 +18,6 @@ const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // console.log(movies);
-  // console.log("a", genres);
-  // console.log("b", genresLoaded);
-
   useEffect(() => {
     dispatch(getGenres());
   }, []);

@@ -5,8 +5,11 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 const Card = ({ index, movieData, isLiked = false }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <Container
       onMouseEnter={() => setIsHovered(true)}
